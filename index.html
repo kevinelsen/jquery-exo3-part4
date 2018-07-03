@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Exercice 3</title>
+  </head>
+  <body>
+       <form class="formulaire">
+         <label for="firstName">Nom :</label><input type="text" id="fName" value="">
+         <label for="lastNam">prénom :</label><input type="text" id="lName" value="">
+         <label for="mail">Adresse-mail :</label><input type="text" id="mail" value="">
+         <label for="phone">Téléphone :</label><input type="text" id="phone" value="">
+     <button type="button" name="button" id="valide">Valider !</button>
+     </form>
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+//Déclaration de la fonction.
+       $('#valide').click(function(){
+//Assignation des variable.
+          var nom = $('#fName').val();
+          var prenom = $('#lName').val();
+          var email = $('#mail').val();
+          var tel = $('#phone').val();
+//Regex.
+        var regexN = /^[a-zA-Zàéèêîïçô]+$/;
+        var regexMail = /^[-a-zA-Z_\.0-9]+@[-a-zA-Z_0-9]+\.[a-z]{0,4}$/;
+        var regexPhone = /^[0-9\.]{10}$/;
+console.log(regexPhone.test(tel));
+        if (regexN.test(nom) && regexN.test(prenom) && regexMail.test(email) && regexPhone.test(tel)) {
+         alert(' Votre nom: ' + nom + ' Votre prénom: ' + prenom + ' Votre mail: ' + email + ' Votre téléphone : ' + tel);
+        }else {
+          alert('Veuillez rentrez les bon caractère');
+        }
+        });
+    </script>
+  </body>
+</html>
